@@ -1,0 +1,91 @@
+{% extends 'baseapp/base.html' %}
+
+{% load static %}
+
+{% block body_class %}
+page-contacts
+{% endblock %}
+
+{% block content %}
+<header class="intro  align-items-center  jarallax" data-speed="0.5" data-img-position="50% 33%" style="background-image: url('../../static/img/head_picture.jpg')">
+
+	<div class="pattern" style="opacity: 0.25;"></div>
+
+	<div class="container">
+		<div class="intro__text">
+			<h1 class="intro__title">Контакты</h1>
+		</div>
+	</div>
+</header>
+<main role="main">
+	<section class="section">
+		<div class="container">
+			<div class="contact-address">
+				<address class="contact-address__inner">
+					<div class="row justify-content-lg-around">
+						<!-- start item -->
+						<div class="col-md-4 col-lg-3">
+							<div class="contact__item">
+								<i class="contact__item__ico fontello-location"></i>
+
+								<h4 class="contact__item__title">Адрес</h4>
+
+								<p>
+									309292, Белгородская обл., Шебекино г., 
+									<!-- <br /> -->
+									Чкалова ул., дом 28А, офис 18
+								</p>
+							</div>
+						</div>
+						<!-- end item -->
+
+						<!-- start item -->
+						<div class="col-md-4 col-lg-3">
+							<div class="contact__item">
+								<i class="contact__item__ico fontello-phone-call"></i>
+
+								<h4 class="contact__item__title">Телефон</h4>
+
+								<p>
+									+7(908)780-22-12
+									<!-- <br />
+									+844 123 456 789 -->
+								</p>
+							</div>
+						</div>
+						<!-- end item -->
+
+						<!-- start item -->
+						<div class="col-md-4 col-lg-3">
+							<div class="contact__item">
+								<i class="contact__item__ico fontello-mail"></i>
+
+								<h4 class="contact__item__title">Email</h4>
+
+								<p>
+									<a href="mailto:shar.ltd31@yandex.ru">shar.ltd31@yandex.ru</a>
+									<!-- <br />
+									<a href="mailto:info@company.com">info@company.com</a> -->
+								</p>
+							</div>
+						</div>
+						<!-- end item -->
+					</div>
+				</address>
+			</div>
+		</div>
+	</section>	
+	<section class="section-contact">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<div class="item map-container">
+						<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A243a4d286d6e29ca7532e6d2de89d0cb481c48b50113bdadb76f19882d9ac5ec&amp;source=constructor" width="100%" height="600" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+
+{% endblock %}

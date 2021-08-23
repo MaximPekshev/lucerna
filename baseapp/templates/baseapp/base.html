@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+{% load static %}
+
+	<head>
+		<title>Agricom</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="description" content="">
+
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui" />
+
+		<meta name="theme-color" content="#4A8B71" />
+		<meta name="msapplication-navbutton-color" content="#4A8B71" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#4A8B71" />
+
+			<!-- Favicons
+				================================================== -->
+				<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+				<link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+				<link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/apple-touch-icon-72x72.png' %}">
+				<link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/apple-touch-icon-114x114.png' %}">
+
+			<!-- CSS
+				================================================== -->
+				<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+
+			<!-- Load google font
+				================================================== -->
+				<script type="text/javascript">
+					WebFontConfig = {
+						google: { families: [ 'Poppins:300,400,500,600,700', 'Raleway:400,400i,500,500i,700,700i'] }
+					};
+					(function() {
+						var wf = document.createElement('script');
+						wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + 
+						'://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+						wf.type = 'text/javascript';
+						wf.async = 'true';
+						var s = document.getElementsByTagName('script')[0];
+						s.parentNode.insertBefore(wf, s);
+					})();
+				</script>
+
+			<!-- Load other scripts
+				================================================== -->
+				<script type="text/javascript">
+					var _html = document.documentElement;
+					_html.className = _html.className.replace("no-js","js");
+				</script>
+				<script type="text/javascript" src="{% static 'js/device.min.js' %}"></script>
+	</head>
+	<body class="page {% block body_class %} page-home {% endblock %} ">
+		<div id="top-bar" class="top-bar--style-1">
+			<div class="container">
+				<a id="top-bar__logo" class="site-logo" href="{% url 'show_index' %}">ШАР ООО</a>
+
+				<a id="top-bar__navigation-toggler" href="javascript:void(0);"><span></span></a>
+
+				<nav id="top-bar__navigation" role="navigation">
+					<ul>
+						<li {% if active == 1 %}class="current"{% endif %}>
+							<a href="{% url 'show_index' %}">Главная</a>
+						</li>
+						<li {% if active == 2 %}class="current"{% endif %}>
+							<a href="{% url 'show_products' %}">Продукция</a>
+						</li>
+						<li {% if active == 5 %}class="current"{% endif %}>
+							<a href="{% url 'show_production' %}">Производство</a>
+						</li>
+						<li {% if active == 3 %}class="current"{% endif %}>
+							<a href="{% url 'show_about' %}">О нас</a>
+						</li>
+						<li {% if active == 4 %}class="current"{% endif %}>
+							<a href="{% url 'show_contacts' %}">Контакты</a>
+						</li>
+						<!-- <li class="as-eng-swith">
+							<a href="{% url 'en_show_index' %}">Eng</a>
+						</li> -->
+						<li class="li-btn"><a class="custom-btn primary" href="#spy-get-in-touch">Связаться</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		{% block content %}
+		{% endblock %}
+		
+		<footer id="footer" class="footer--style-2 footer--dark">
+			<div class="footer__inner">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-md-12 col-lg-4">
+							<div class="footer__item">
+								<a class="site-logo" href="{% url 'show_index' %}">ООО "ШАР"</a>
+
+								<div class="footer__text">
+									<p>
+										<strong>Основана  03.03.2020 г.</strong>
+									</p>
+
+									<p>
+										Опыт и энтузиазм сотрудников позволяет нам развиваться быстрыми темпами. Мы осознаем свою ответственность в области изготовления безопасных и здоровых кормов, подстилок и наполнителей, удовлетворяющих самым высоким требованиям. 
+									</p>
+								</div>
+
+								<p class="footer__copy">© 2021, ООО "ШАР"<br /><br />Developed by <a href="https://annasoft.ru" target="_blank">Annasoft</a></p>
+							</div>
+						</div>
+
+						<div class="col-12 col-md-12 col-lg-4">
+							<div class="footer__item">
+								<h3 class="footer__title">Контакты</h3>
+
+								<div class="company-contacts" >
+									<address>
+										<p>
+											<i class="fontello-location"></i>
+											309292, Белгородская обл., Шебекино г., Чкалова ул., дом 28А, офис 18
+										</p>
+
+										<p>
+											<i class="fontello-phone-call"></i>
+											+7(908)780-22-12
+										</p>
+
+										<p>
+											<i class="fontello-mail"></i>
+											<a href="mailto:shar.ltd31@yandex.ru">shar.ltd31@yandex.ru</a>
+										</p>
+									</address>
+
+									<!-- <div class="social-btns">
+										<div class="social-btns__inner">
+											<a class="fontello-twitter" href="#" target="_blank"></a>
+											<a class="fontello-facebook" href="#" target="_blank"></a>
+											<a class="fontello-linkedin-squared" href="#" target="_blank"></a>
+											<a class="fontello-youtube" href="#" target="_blank"></a>
+											<a class="fontello-gplus" href="#" target="_blank"></a>
+											<a class="fontello-vimeo" href="#" target="_blank"></a>
+											<a class="fontello-vkontakte" href="#" target="_blank"></a>
+											<a class="fontello-instagram" href="#" target="_blank"></a>
+										</div>
+									</div> -->
+								</div>
+							</div>
+						</div>
+						<a id="spy-get-in-touch" class="ancor"></a>
+						<div class="col-12 col-md-12 col-lg-4">
+							<div class="footer__item">
+								<h3 class="footer__title">Связаться с нами</h3>
+
+								<form class="footer__form f1 js-contact-form" action="#">
+									<label class="input-wrp">
+										<i class="fontello-user"></i>
+										<input class="textfield" type="text" placeholder="Ваше Имя" name="name" />
+									</label>
+
+									<label class="input-wrp">
+										<i class="fontello-mail"></i>
+										<input class="textfield" type="text" placeholder="E-mail" name="email" />
+									</label>
+
+									<label class="input-wrp">
+										<i class="fontello-comment"></i>
+										<textarea class="textfield" placeholder="Сообщение" name="message"></textarea>
+									</label>
+
+									<div class="btn-wrp">
+										<button class="custom-btn primary long" type="submit" role="button">Отправить сообщение</button>
+									</div>
+
+									<div class="form__note"></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	<div id="btn-to-top-wrap">
+		<a id="btn-to-top" class="circled" href="javascript:void(0);" data-visible-offset="1000"></a>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="../static/js/jquery-2.2.4.min.js"><\/script>')</script>
+
+		<script type="text/javascript" src="{% static 'js/main.min.js' %}"></script>
+	</body>
+</html>	
