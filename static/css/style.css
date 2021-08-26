@@ -3124,7 +3124,7 @@ form.f1 button[type=submit].custom-btn.primary:not(:hover):not(:focus) {
   float: left;
   width: 44px;
   height: 49px;
-  background-image: url(../img/as_logo_2.png);
+  background-image: url(../img/as_logo_2_2.png);
   -webkit-background-size: 100% 100%;
           background-size: 100%
 }
@@ -4125,7 +4125,7 @@ form.f1 button[type=submit].custom-btn.primary:not(:hover):not(:focus) {
   margin-bottom: 50px
 }
 #footer .site-logo {
-  background: url(../img/as_logo_3.png);
+  background: url(../img/as_logo_3_2.png);
   background-size: contain;
   width: 253px;
   height: 71px
@@ -5700,7 +5700,7 @@ form.f1 button[type=submit].custom-btn.primary:not(:hover):not(:focus) {
     background-color: transparent!important
   }
   .top-bar--style-1:not(.fixed) #top-bar__logo {
-    background-image: url(../img/as_logo_1.png)
+    background-image: url(../img/as_logo_1_2.png)
   }
   .top-bar--style-1:not(.fixed) #top-bar__navigation > ul > li > a:not(:hover):not(:focus) {
     color: #fff
