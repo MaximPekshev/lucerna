@@ -5553,7 +5553,10 @@ form.f1 button[type=submit].custom-btn.primary:not(:hover):not(:focus) {
     transition: none
   }
 }
-@media only screen and (min-width:768px) {
+/*@media only screen and (min-width:768px) {*/
+  /*as*/
+@media only screen and (min-width:1024px) {
+  /*as*/
   .col-md-MB-30 {
     margin-bottom: 30px
   }
@@ -8525,7 +8528,7 @@ form.f1 button[type=submit].custom-btn.primary:not(:hover):not(:focus) {
     display: inline-flex!important
   }
 }
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:500px) {
   .section-contact .item {
     margin-left: auto;
     margin-right: auto
