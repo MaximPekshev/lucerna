@@ -3,9 +3,9 @@
 {% load static %}
 
 	<head>
-		<title>Agricom</title>
+		<title>{% block title %}Шебекинский агро ресурс ООО{% endblock %}</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="description" content="">
+		<meta name="description" content="{% block description %}{% endblock %}">
 
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui" />
@@ -25,6 +25,8 @@
 				================================================== -->
 				<!-- <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"> -->
 				<link rel="stylesheet" href="{% static 'css/style.min.css' %}" type="text/css">
+				<link rel="stylesheet" href="{% static 'css/vegas.css' %}" type="text/css">
+				<link rel="stylesheet" href="{% static 'css/custom_vegas.css' %}" type="text/css">
 
 			<!-- Load google font
 				================================================== -->
@@ -50,6 +52,7 @@
 					_html.className = _html.className.replace("no-js","js");
 				</script>
 				<script type="text/javascript" src="{% static 'js/device.min.js' %}"></script>
+				<script type="text/javascript" src="{% static 'js/vegas.js' %}"></script>
 	</head>
 	<body class="page {% block body_class %} page-home {% endblock %} ">
 		<div id="top-bar" class="top-bar--style-1">
@@ -75,9 +78,9 @@
 						<li {% if active == 4 %}class="current"{% endif %}>
 							<a href="{% url 'show_contacts' %}">Контакты</a>
 						</li>
-						<!-- <li class="as-eng-swith">
+						<li class="as-eng-swith">
 							<a href="{% url 'en_show_index' %}">Eng</a>
-						</li> -->
+						</li>
 						<li class="li-btn"><a class="custom-btn primary" href="#spy-get-in-touch">Связаться</a></li>
 					</ul>
 				</nav>
@@ -115,9 +118,16 @@
 
 								<div class="company-contacts" >
 									<address>
+										Почтовый адрес:
 										<p>
 											<i class="fontello-location"></i>
 											309292, Белгородская обл., Шебекино г., Чкалова ул., дом 28А, офис 18
+										</p>
+
+										Адрес производства:
+										<p>
+											<i class="fontello-location"></i>
+											309261, Россия, Белгородская область, Шебекинский район, село Ржевка, улица Комарова 1
 										</p>
 
 										<p>
@@ -131,18 +141,6 @@
 										</p>
 									</address>
 
-									<!-- <div class="social-btns">
-										<div class="social-btns__inner">
-											<a class="fontello-twitter" href="#" target="_blank"></a>
-											<a class="fontello-facebook" href="#" target="_blank"></a>
-											<a class="fontello-linkedin-squared" href="#" target="_blank"></a>
-											<a class="fontello-youtube" href="#" target="_blank"></a>
-											<a class="fontello-gplus" href="#" target="_blank"></a>
-											<a class="fontello-vimeo" href="#" target="_blank"></a>
-											<a class="fontello-vkontakte" href="#" target="_blank"></a>
-											<a class="fontello-instagram" href="#" target="_blank"></a>
-										</div>
-									</div> -->
 								</div>
 							</div>
 						</div>
@@ -151,24 +149,27 @@
 							<div class="footer__item">
 								<h3 class="footer__title">Связаться с нами</h3>
 
-								<form class="footer__form f1 js-contact-form" action="#">
+								<form id="rus_contactForm" class="footer__form f1" action="{% url 'send_contact_form' %}" method="POST">
+									{% csrf_token %}
 									<label class="input-wrp">
 										<i class="fontello-user"></i>
-										<input class="textfield" type="text" placeholder="Ваше Имя" name="name" />
+										{{ contact_form.contactName }}
 									</label>
 
 									<label class="input-wrp">
 										<i class="fontello-mail"></i>
-										<input class="textfield" type="text" placeholder="E-mail" name="email" />
+										{{ contact_form.contactEmail }}
 									</label>
 
 									<label class="input-wrp">
 										<i class="fontello-comment"></i>
-										<textarea class="textfield" placeholder="Сообщение" name="message"></textarea>
+										{{ contact_form.contactComment }}
 									</label>
+									
+									{{ contact_form.captcha }}
 
 									<div class="btn-wrp">
-										<button class="custom-btn primary long" type="submit" role="button">Отправить сообщение</button>
+										<button class="custom-btn primary long" type="submit" form="rus_contactForm">Отправить сообщение</button>
 									</div>
 
 									<div class="form__note"></div>

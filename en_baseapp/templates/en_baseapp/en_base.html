@@ -3,9 +3,9 @@
 {% load static %}
 
 	<head>
-		<title>Agricom</title>
+		<title>{% block title %}SHAR Ltd{% endblock %}</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="description" content="">
+		<meta name="description" content="{% block description %}{% endblock %}">
 
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui" />
@@ -23,7 +23,10 @@
 
 			<!-- CSS
 				================================================== -->
-				<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+				<!-- <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"> -->
+				<link rel="stylesheet" href="{% static 'css/style.min.css' %}" type="text/css">
+				<link rel="stylesheet" href="{% static 'css/vegas.css' %}" type="text/css">
+				<link rel="stylesheet" href="{% static 'css/custom_vegas.css' %}" type="text/css">
 
 			<!-- Load google font
 				================================================== -->
@@ -49,12 +52,13 @@
 					_html.className = _html.className.replace("no-js","js");
 				</script>
 				<script type="text/javascript" src="{% static 'js/device.min.js' %}"></script>
+				<script type="text/javascript" src="{% static 'js/vegas.js' %}"></script>
 	</head>
 	<body class="page {% block body_class %}page-home{% endblock %}">
 
 		<div id="top-bar" class="top-bar--style-1">
 			<div class="container">
-				<a id="top-bar__logo" class="site-logo" href="{% url 'en_show_index' %}">AGRICOM</a>
+				<a id="top-bar__logo" class="site-logo" href="{% url 'en_show_index' %}">SHAR Ltd</a>
 
 				<a id="top-bar__navigation-toggler" href="javascript:void(0);"><span></span></a>
 
@@ -93,31 +97,39 @@
 					<div class="row">
 						<div class="col-md-6 col-lg-4">
 							<div class="footer__item">
-								<a class="site-logo" href="{% url 'show_index' %}">"SAR" Ltd</a>
+								<a class="site-logo" href="{% url 'show_index' %}">"SHAR" Ltd</a>
 
 								<div class="footer__text">
 									<p>
-										<strong>Evulates vast a real proven works discount secure care. Market invigorate a awesome.</strong>
+										<strong>Date of foundation - 03.03.2020.</strong>
 									</p>
 
 									<p>
-										Odor to yummy high racy bonus soaking mouthwatering. Evulates vast a real proven works discount secure care. Market invigorate a awesome handcrafted bigger comes newer 
+										The experience and enthusiasm of our employees allows us to develop at a fairly rapid pace. In May 2020, a pelletizing production line with a capacity of 100 tons per day was put into operation, which allows providing most of the leading feed mills in Russia, as well as plants and farms in Europe with raw materials.
 									</p>
 								</div>
 
-								<p class="footer__copy">© 2019, Agricom. All rights reserved.<br /><br />Template by <a href="https://themeforest.net/user/artureanec" target="_blank">Artureanec</a></p>
+								<p class="footer__copy">© 2021, SHAR Ltd<br /><br />Developed by <a href="https://annasoft.ru" target="_blank">Annasoft</a></p>
 							</div>
 						</div>
 
 						<div class="col-md-6 col-lg-4">
 							<div class="footer__item">
-								<h3 class="footer__title">Контакты</h3>
+								<h3 class="footer__title">Contacts</h3>
 
 								<div class="company-contacts" >
 									<address>
+										Postal adress:
 										<p>
 											<i class="fontello-location"></i>
-											309292, Белгородская обл., Шебекино г., Чкалова ул., дом 28А, офис 18
+											309292, Russian Federation, Belgorod region, Shebekino c., Chkalova st., 28A, office 18.
+										</p>
+
+										Factory adress:
+
+										<p>
+											<i class="fontello-location"></i>
+											309261, Russian Federation, Belgorod region, Shebekino district, Rzhevka village, Komarova st., 1
 										</p>
 
 										<p>
@@ -130,19 +142,6 @@
 											<a href="mailto:shar.ltd31@yandex.ru">shar.ltd31@yandex.ru</a>
 										</p>
 									</address>
-
-									<!-- <div class="social-btns">
-										<div class="social-btns__inner">
-											<a class="fontello-twitter" href="#" target="_blank"></a>
-											<a class="fontello-facebook" href="#" target="_blank"></a>
-											<a class="fontello-linkedin-squared" href="#" target="_blank"></a>
-											<a class="fontello-youtube" href="#" target="_blank"></a>
-											<a class="fontello-gplus" href="#" target="_blank"></a>
-											<a class="fontello-vimeo" href="#" target="_blank"></a>
-											<a class="fontello-vkontakte" href="#" target="_blank"></a>
-											<a class="fontello-instagram" href="#" target="_blank"></a>
-										</div>
-									</div> -->
 								</div>
 							</div>
 						</div>
@@ -151,24 +150,27 @@
 							<div class="footer__item">
 								<h3 class="footer__title">Get in touch</h3>
 
-								<form class="footer__form f1 js-contact-form" action="#">
+								<form id="en_contactForm"  class="footer__form f1 " action="{% url 'en_send_contact_form' %}" method="POST">
+									{% csrf_token %}
 									<label class="input-wrp">
 										<i class="fontello-user"></i>
-										<input class="textfield" type="text" placeholder="You name" name="name" />
+										{{ contact_form.contactName }}
 									</label>
 
 									<label class="input-wrp">
 										<i class="fontello-mail"></i>
-										<input class="textfield" type="text" placeholder="E-mail" name="email" />
+										{{ contact_form.contactEmail }}
 									</label>
 
 									<label class="input-wrp">
 										<i class="fontello-comment"></i>
-										<textarea class="textfield" placeholder="Comment" name="message"></textarea>
+										{{ contact_form.contactComment }}
 									</label>
 
+									{{ contact_form.captcha }}
+
 									<div class="btn-wrp">
-										<button class="custom-btn primary long" type="submit" role="button">Send a message</button>
+										<button class="custom-btn primary long" type="submit" form="en_contactForm">Send a message</button>
 									</div>
 
 									<div class="form__note"></div>

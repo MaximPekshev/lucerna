@@ -2,6 +2,15 @@
 
 {% load static %}
 
+{% block title %}
+Наша команда профессионалов трудится для вашего хозяйства | ООО ШАР
+{% endblock %}
+
+
+{% block description %}
+Опыт и энтузиазм сотрудников позволяет нам развиваться довольно быстрыми темпами. В мае 2020 года введена в эксплуатацию производственная линия по гранулированию мощностью 100 тонн в суткиГрубые корма и подстилка для всех видов домашних и сельскохозяйственных животных и птиц.
+{% endblock %}
+
 {% block body_class %}
 page-about
 {% endblock %}
@@ -17,10 +26,8 @@ page-about
 		</div>
 	</div>
 </header>
-<!-- end header -->
 
 <main role="main">
-	<!-- start section -->
 	<section class="section section--no-pb">
 		<div class="container">
 			<div class="row">
@@ -45,12 +52,8 @@ page-about
 
 				<div class="col-lg-4 offset-lg-1">
 					<div class="col-MB-30">
-						<img class="d-block mx-auto img-fluid" src="{% static 'img/as_l2_2.png' %}" alt="demo" />
+						<img class="d-block mx-auto img-fluid" src="{% static 'img/as_l2_2.png' %}" alt="ООО ШАР" />
 					</div>
-
-					<!-- <div class="col-MB-30">
-						<img class="img-fluid" src="{% static 'img/slogan.png' %}" alt="demo" />
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -64,7 +67,6 @@ page-about
 			<div class="counters counters--style-2">
 				<div class="counters__inner">
 					<div class="row">
-						<!-- star item -->
 						<div class="col-md-6 col-xl-3">
 							<div class="counter__item">
 								<i class="counter__item__ico counter__item__ico--1"></i>
@@ -74,8 +76,6 @@ page-about
 								<p class="counter__item__title">товаров выпускаются по ГОСТ</p>
 							</div>
 						</div>
-						<!-- end item -->
-						<!-- star item -->
 						<div class="col-md-6 col-xl-3">
 							<div class="counter__item">
 								<i class="counter__item__ico counter__item__ico--3"></i>
@@ -85,8 +85,6 @@ page-about
 								<p class="counter__item__title">за килограмм продукции</p>
 							</div>
 						</div>
-						<!-- end item -->
-						<!-- star item -->
 						<div class="col-md-6 col-xl-3">
 							<div class="counter__item">
 								<i class="counter__item__ico counter__item__ico--4"></i>
@@ -96,8 +94,6 @@ page-about
 								<p class="counter__item__title">люцерна, без примесей</p>
 							</div>
 						</div>
-						<!-- end item -->
-						<!-- star item -->
 						<div class="col-md-6 col-xl-3">
 							<div class="counter__item">
 								<i class="counter__item__ico counter__item__ico--2"></i>
@@ -107,8 +103,6 @@ page-about
 								<p class="counter__item__title">максимальная тара</p>
 							</div>
 						</div>
-						<!-- end item -->
-
 					</div>
 				</div>
 			</div>

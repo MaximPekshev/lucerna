@@ -1,0 +1,28 @@
+{% extends 'baseapp/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<header class="intro  align-items-center  jarallax" data-speed="0.5" data-img-position="50% 33%" style="background-image: url('../../static/img/home_img/as_back_6.jpg')">
+
+	<div class="pattern" style="opacity: 0.25;"></div>
+</header>
+<main role="main">
+	<section class="section section-404">
+		<div class="container">
+			<div class="row justify-content-md-center text-center">
+				<div class="col-md-10">
+
+					<h2 class="title">{{ message }}</h2>
+
+					<div class="text-center">
+						<a id="blog-more-btn" class="custom-btn big primary" href="{% url 'show_index' %}">На главную</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+{% endblock %}
+
+

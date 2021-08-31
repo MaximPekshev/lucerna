@@ -8,7 +8,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['localhost', 'sharltd.ru', 'www.sharltd.ru' ]
+ALLOWED_HOSTS = ['localhost', 'sharltd.ru', 'www.sharltd.ru' , '127.0.0.1' ]
 
 
 INSTALLED_APPS = [
@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'baseapp',
     'en_baseapp',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +89,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+RECAPTCHA_PUBLIC_KEY = config('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_PRIVATE_KEY')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'

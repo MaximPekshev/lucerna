@@ -4,6 +4,7 @@ from .views import en_show_products
 from .views import en_show_about
 from .views import en_show_contacts
 from .views import en_show_production
+from .views import en_send_contact_form
 
 urlpatterns = [    
     path('', en_show_index, name='en_show_index'),
@@ -11,5 +12,6 @@ urlpatterns = [
     path('about/', en_show_about, name='en_show_about'),
     path('contacts/', en_show_contacts, name='en_show_contacts'),
     path('production/', en_show_production, name='en_show_production'),
+    path('send-contact-form/', en_send_contact_form, name='en_send_contact_form'),
     
 ]
