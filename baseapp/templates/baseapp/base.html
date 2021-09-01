@@ -179,7 +179,9 @@
 										<i class="fontello-comment"></i>
 										{{ contact_form.contactComment }}
 									</label>
-									
+									{% for message in messages %}
+                                    <p  style="color: red" class="text-uppercase" >* {{ message }} </p>
+                                    {% endfor %}
 									{{ contact_form.captcha }}
 
 									<div class="btn-wrp">

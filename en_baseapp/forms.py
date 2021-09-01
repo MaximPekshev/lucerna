@@ -10,7 +10,7 @@ class ContactForm(forms.Form):
 			'id': 'contactNameInput',
 
 		}))
-	contactEmail = forms.EmailField(max_length=30, widget=forms.TextInput(attrs={
+	contactEmail = forms.EmailField(max_length=30, widget=forms.EmailInput(attrs={
 			'class': 'textfield',
 			'placeholder': 'E-mail',
 			'id': 'contactEmailInput',

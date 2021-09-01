@@ -5,6 +5,8 @@ from decouple import config
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from django.contrib					import messages
+
 
 def en_show_index(request):
 	active = 1
@@ -62,11 +64,11 @@ def en_send_contact_form(request):
 			send_mail(contactName, contactEmail, contactComment)
 
 			message = 'Contact form successfully sent.'
-
+			messages.info(request, 'Contact form successfully sent.')
 		else:
 
 			message = 'The contact form is filled out incorrectly. Try again.'
-
+			messages.info(request, 'The contact form is filled out incorrectly. Confirm that you are not a robot.')
 
 	context = {
 		'message' : message,

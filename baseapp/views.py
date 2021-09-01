@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ContactForm
 from decouple import config
 
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+from django.contrib					import messages
 
 def show_index(request):
 	active = 1
@@ -63,10 +65,12 @@ def send_contact_form(request):
 			send_mail(contactName, contactEmail, contactComment)
 
 			message = 'Форма обратной связи успешно отправлена.'
+			messages.info(request, 'Форма обратной связи успешно отправлена.')
 
 		else:
 
 			message = 'Форма обратной связи заполнена некорректно. Попробуйте еще раз.'
+			messages.info(request, 'Форма обратной связи заполнена некорректно. Подтвердите что вы не робот.')
 
 
 	context = {
@@ -74,8 +78,6 @@ def send_contact_form(request):
 		'contact_form':ContactForm(),
  	}
 	return render(request, 'baseapp/send_form_success.html', context)
-
-
 
 def send_mail(name, email, comment):
 
