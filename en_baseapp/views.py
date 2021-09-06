@@ -78,13 +78,13 @@ def en_send_contact_form(request):
 
 def send_mail(name, email, comment):
 
-	HOST = "smtp.mail.ru"
+	HOST = "mail.hosting.reg.ru"
 	sender_email = config('MAIL_USER')
-	receiver_email = ['info@annasoft.ru',]
+	receiver_email = ['info@annasoft.ru', 'shar.ltd31@yandex.ru', ]
 	password = config('MAIL_PASSWORD')
 
 	message = MIMEMultipart("alternative")
-	message["Subject"] = "Свяжитесь с {0}. e-mail {1}".format(name, email) 
+	message["Subject"] = "С Вами хотят связаться - {0}. e-mail {1}".format(name, email) 
 	message["From"] = sender_email
 	message["To"] = ','.join(receiver_email)
 
@@ -94,7 +94,7 @@ def send_mail(name, email, comment):
 	html = """\
 	<html>
       <body>
-        <H3>Свяжитесь с {0}. Email: {1}</H3>
+        <H3>С Вами хотят связаться - {0}. Email: {1}</H3>
         <p></p>
         <p>Комментарий:</p>
         <p>{2}</p>
