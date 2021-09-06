@@ -8,8 +8,8 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['localhost', 'sharltd.ru', 'www.sharltd.ru' , '127.0.0.1' ]
-
+# ALLOWED_HOSTS = ['localhost', 'sharltd.ru', 'www.sharltd.ru' , '127.0.0.1' ]
+ALLOWED_HOSTS = ['localhost', 'shar31.com', 'www.shar31.com' , '127.0.0.1' ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
